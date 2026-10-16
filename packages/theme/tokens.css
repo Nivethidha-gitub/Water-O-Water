@@ -1,0 +1,19 @@
+/* WoW product theme — CSS custom properties (same values as tokens.ts) */
+:root {
+  --bg: #F3F8FA;
+  --surface: #FFFFFF;
+  --ink: #0F2630;
+  --ink-soft: #5C7580;
+  --ink-faint: #93A8AF;
+  --primary: #0B5C7A;
+  --primary-dark: #073A4E;
+  --accent: #00B6D6;
+  --can: #E4F4F8;
+  --can-line: #CFE9EF;
+  --good: #2FA86B;
+  --good-bg: #E7F6EE;
+  --warn: #F2994A;
+  --warn-bg: #FDF1E4;
+  --font-d: "Poppins", sans-serif;
+  --font-b: "Inter", sans-serif;
+}

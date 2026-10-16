@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <title>WoW - Customer & Supplier</title>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/phone.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+
+<body>
+
+  <!-- =====================================================
+       PAGE HEADER
+       ===================================================== -->
+
+  <div class="page-head">
+
+    <div class="eyebrow">
+      WoW · connected to /v1 API
+    </div>
+
+    <h1>
+      Water O Water
+    </h1>
+
+    <p>
+      Customer web, supplier inbox, WhatsApp simulator,
+      and ops fallback.
+    </p>
+
+  </div>
+
+
+  <!-- =====================================================
+       PAGE NAVIGATION
+       ===================================================== -->
+
+  <div class="nav-links">
+
+    <a
+      class="active"
+      href="/">
+      App
+    </a>
+
+    <a href="/ops.html">
+      Ops fallback
+    </a>
+
+    <a href="/whatsapp.html">
+      WhatsApp sim
+    </a>
+
+  </div>
+
+
+  <!-- =====================================================
+       CUSTOMER SELECTOR
+       ===================================================== -->
+
+  <div class="customer-selector">
+
+    <label for="customerSelect">
+      Customer
+    </label>
+
+    <select
+      id="customerSelect"
+      onchange="changeCustomer(this.value)"
+    >
+
+      <option>
+        Loading...
+      </option>
+
+    </select>
+
+  </div>
+
+
+  <!-- =====================================================
+       MODE SWITCH
+       ===================================================== -->
+
+  <div class="mode-switch">
+
+    <button
+      class="active"
+      data-mode="customer"
+      onclick="setMode('customer')"
+    >
+      Customer App
+    </button>
+
+    <button
+      data-mode="supplier"
+      onclick="setMode('supplier')"
+    >
+      Supplier Dashboard
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       PHONE
+       ===================================================== -->
+
+  <div
+    class="phone"
+    id="customerPhone"
+  >
+
+
+    <!-- ===================================================
+         SCREEN AREA
+         =================================================== -->
+
+    <div class="screen-area">
+
+
+      <!-- =================================================
+           HOME SCREEN
+           ================================================= -->
+
+      <div
+        class="screen active"
+        id="s-home"
+      >
+
+
+        <!-- HOME HEADER -->
+
+        <div class="top home-topbar">
+
+          <div>
+
+            <h2 id="greet-name">
+              Hi, Ayesha 👋
+            </h2>
+
+            <div class="muted home-location">
+
+              <span>
+                📍
+              </span>
+
+              <span id="home-address">
+                Anna Nagar, Chennai
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <div
+            class="avatar"
+            id="customer-avatar"
+          >
+            A
+          </div>
+
+        </div>
+
+
+        <!-- HOME SCROLLABLE BODY -->
+
+        <div class="body home-content">
+
+
+          <!-- =================================================
+               HERO CARD
+               ================================================= -->
+
+          <div class="home-hero">
+
+
+            <!-- PROGRESS RING -->
+
+            <div class="progress-ring">
+
+              <svg
+                width="82"
+                height="82"
+                viewBox="0 0 82 82"
+              >
+
+                <circle
+                  cx="41"
+                  cy="41"
+                  r="34"
+                  fill="none"
+                  stroke="rgba(255,255,255,0.25)"
+                  stroke-width="7"
+                >
+                </circle>
+
+
+                <circle
+                  cx="41"
+                  cy="41"
+                  r="34"
+                  fill="none"
+                  stroke="white"
+                  stroke-width="7"
+                  stroke-linecap="round"
+                  stroke-dasharray="140 214"
+                  transform="rotate(-90 41 41)"
+                >
+                </circle>
+
+              </svg>
+
+
+              <div class="ring-text">
+
+                <strong id="cans-left">
+                  2
+                </strong>
+
+                <span>
+                  CANS LEFT
+                </span>
+
+              </div>
+
+            </div>
+
+
+            <!-- HERO INFORMATION -->
+
+            <div class="hero-info">
+
+              <h3>
+                Your water usually runs out in 2 days
+              </h3>
+
+              <p>
+                Based on your last 4 orders.
+                Reorder now so you're never dry.
+              </p>
+
+              <button
+                class="hero-button"
+                onclick="switchScreen('s-order')"
+              >
+                Reorder now
+              </button>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               DELIVERY STATUS
+               ================================================= -->
+
+          <div class="delivery-status">
+
+            <div class="status-dot"></div>
+
+            <div>
+
+              <strong>
+                Order out for delivery
+              </strong>
+
+              <p id="delivery-text">
+                Arriving today by 6:30 PM ·
+                Tap Track to follow along
+              </p>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               QUICK ORDER TITLE
+               ================================================= -->
+
+          <div class="section-title">
+
+            <h3>
+              Quick order
+            </h3>
+
+            <button
+              onclick="switchScreen('s-order')"
+            >
+              See all
+            </button>
+
+          </div>
+
+
+          <!-- =================================================
+               QUICK ORDER CARDS
+               ================================================= -->
+
+          <div class="quick-orders">
+
+
+            <!-- 20L CAN -->
+
+            <div class="quick-card">
+
+              <div class="product-icon">
+
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+
+                  <path
+                    d="M7 5h10l1 15H6L7 5Z"
+                  >
+                  </path>
+
+                  <path
+                    d="M9 5V3h6v2"
+                  >
+                  </path>
+
+                  <path
+                    d="M9 9h6"
+                  >
+                  </path>
+
+                </svg>
+
+              </div>
+
+
+              <h4>
+                20L Can
+              </h4>
+
+
+              <p>
+                ₹40 / can
+              </p>
+
+
+              <div class="quantity-control">
+
+                <button
+                  onclick="changeQuickQty('can20', -1)"
+                >
+                  −
+                </button>
+
+                <span id="qty-can20">
+                  1
+                </span>
+
+                <button
+                  onclick="changeQuickQty('can20', 1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+
+            <!-- 1L PACK -->
+
+            <div class="quick-card">
+
+              <div class="product-icon">
+
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+
+                  <path
+                    d="M6 5h12l1 15H5L6 5Z"
+                  >
+                  </path>
+
+                  <path
+                    d="M9 5V3h6v2"
+                  >
+                  </path>
+
+                  <path
+                    d="M9 10h6"
+                  >
+                  </path>
+
+                  <path
+                    d="M12 7v6"
+                  >
+                  </path>
+
+                </svg>
+
+              </div>
+
+
+              <h4>
+                1L Pack (12)
+              </h4>
+
+
+              <p>
+                ₹96 / pack
+              </p>
+
+
+              <div class="quantity-control">
+
+                <button
+                  onclick="changeQuickQty('pack1', -1)"
+                >
+                  −
+                </button>
+
+                <span id="qty-pack1">
+                  0
+                </span>
+
+                <button
+                  onclick="changeQuickQty('pack1', 1)"
+                >
+                  +
+                </button>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <!-- =================================================
+               MONTHLY REFILL
+               ================================================= -->
+
+          <div class="promo-banner">
+
+            <div>
+
+              <h3>
+                Never run out — Monthly Refill Plan
+              </h3>
+
+              <p>
+                4 cans a month, auto-delivered ·
+                from ₹99/month
+              </p>
+
+            </div>
+
+
+            <button
+              onclick="window.showToast('Monthly refill plan selected')"
+            >
+              View
+            </button>
+
+          </div>
+
+
+          <!-- =================================================
+               LATEST ORDER
+               ================================================= -->
+
+          <div class="latest-order-card">
+
+            <b>
+              Latest order
+            </b>
+
+            <p
+              class="muted"
+              id="home-banner"
+            >
+            </p>
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           ORDER SCREEN
+           ================================================= -->
+
+      <div
+        class="screen"
+        id="s-order"
+      >
+
+        <div class="top">
+
+          <h2>
+            Order water
+          </h2>
+
+        </div>
+
+
+        <div
+          class="body"
+          id="product-list"
+        >
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           TRACK SCREEN
+           ================================================= -->
+
+      <div
+        class="screen"
+        id="s-track"
+      >
+
+        <div class="top">
+
+          <h2>
+            Track order
+          </h2>
+
+        </div>
+
+
+        <div
+          class="body track-page-content"
+          id="track-content"
+        >
+        </div>
+
+      </div>
+
+
+      <!-- =================================================
+           PROFILE SCREEN
+           ================================================= -->
+
+      <div
+        class="screen"
+        id="s-profile"
+      >
+
+        <div class="top">
+
+          <h2>
+            Profile & ledger
+          </h2>
+
+        </div>
+
+
+        <div class="body">
+
+          <div class="card">
+
+            <h4>
+              BAL
+            </h4>
+
+            <p
+              id="profile-balance"
+              class="muted"
+            >
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </div>
+    <!-- END SCREEN AREA -->
+
+
+    <!-- ===================================================
+         BOTTOM NAVIGATION
+         =================================================== -->
+
+    <div class="tabbar">
+
+
+      <!-- HOME TAB -->
+
+      <button
+        class="active"
+        data-screen="s-home"
+        onclick="switchScreen('s-home')"
+      >
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <path
+            d="M3 10.5L12 3l9 7.5"
+          >
+          </path>
+
+          <path
+            d="M5 9.5V21h14V9.5"
+          >
+          </path>
+
+          <path
+            d="M9 21v-6h6v6"
+          >
+          </path>
+
+        </svg>
+
+
+        <span>
+          Home
+        </span>
+
+      </button>
+
+
+      <!-- ORDER TAB -->
+
+      <button
+        data-screen="s-order"
+        onclick="switchScreen('s-order')"
+      >
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <circle
+            cx="9"
+            cy="20"
+            r="1"
+          >
+          </circle>
+
+          <circle
+            cx="18"
+            cy="20"
+            r="1"
+          >
+          </circle>
+
+          <path
+            d="M3 4h2l2.5 11h10L20 7H6"
+          >
+          </path>
+
+        </svg>
+
+
+        <span>
+          Order
+        </span>
+
+      </button>
+
+
+      <!-- TRACK TAB -->
+
+      <button
+        data-screen="s-track"
+        onclick="switchScreen('s-track')"
+      >
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <polyline
+            points="3 12 7 12 10 5 14 19 17 12 21 12"
+          >
+          </polyline>
+
+        </svg>
+
+
+        <span>
+          Track
+        </span>
+
+      </button>
+
+
+      <!-- PROFILE TAB -->
+
+      <button
+        data-screen="s-profile"
+        onclick="switchScreen('s-profile')"
+      >
+
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+
+          <circle
+            cx="12"
+            cy="8"
+            r="4"
+          >
+          </circle>
+
+          <path
+            d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"
+          >
+          </path>
+
+        </svg>
+
+
+        <span>
+          Profile
+        </span>
+
+      </button>
+
+
+    </div>
+    <!-- END BOTTOM NAVIGATION -->
+
+
+  </div>
+  <!-- END PHONE -->
+
+
+  <!-- =====================================================
+       SUPPLIER DASHBOARD
+       ===================================================== -->
+
+  <div
+    class="dash-wrap hidden"
+    id="supplierDash"
+  >
+
+    <div class="dash-card">
+
+      <h2>
+        Live orders
+      </h2>
+
+
+      <table>
+
+        <thead>
+
+          <tr>
+
+            <th>
+              Order
+            </th>
+
+            <th>
+              Customer
+            </th>
+
+            <th>
+              Item
+            </th>
+
+            <th>
+              Rider
+            </th>
+
+            <th>
+              Status
+            </th>
+
+            <th>
+              Action
+            </th>
+
+          </tr>
+
+        </thead>
+
+
+        <tbody
+          id="live-orders"
+          onclick="onSupplierClick(event)"
+        >
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+       TOAST
+       ===================================================== -->
+
+  <div
+    id="toast"
+    class="toast hidden"
+  >
+  </div>
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+       ===================================================== -->
+
+  <script src="/js/config.js"></script>
+
+  <script src="/js/api-client.js"></script>
+
+  <script src="/js/format.js"></script>
+
+  <script src="/js/toast.js"></script>
+
+  <script src="/js/tabbar.js"></script>
+
+  <script src="/js/customer-selector.js"></script>
+
+  <script src="/js/screens/home.js"></script>
+
+  <script src="/js/screens/order-screen.js"></script>
+
+  <script src="/js/screens/track.js"></script>
+
+  <script src="/js/screens/profile.js"></script>
+
+  <script src="/js/screens/supplier.js"></script>
+
+  <script src="/js/app.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,80 @@
+{
+  "expo": {
+    "name": "Water'O'Water",
+    "slug": "water-o-water",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.waterowater.mobile",
+      "infoPlist": {
+        "UIBackgroundModes": [
+          "location"
+        ],
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Water'O'Water shares your live location with the customer while you deliver, even when the app is in the background."
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#0B5C7A"
+      },
+      "package": "com.waterowater.mobile",
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_BACKGROUND_LOCATION",
+        "FOREGROUND_SERVICE",
+        "FOREGROUND_SERVICE_LOCATION",
+        "CAMERA",
+        "POST_NOTIFICATIONS"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-secure-store",
+      [
+        "expo-splash-screen",
+        {
+          "resizeMode": "cover",
+          "backgroundColor": "#0B5C7A",
+          "image": "./assets/splash.png"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Allow Water'O'Water to use your location to show your live delivery route.",
+          "locationAlwaysAndWhenInUsePermission": "Water'O'Water shares your live location with the customer while you deliver, even when the app is in the background.",
+          "isAndroidBackgroundLocationEnabled": true,
+          "isAndroidForegroundServiceEnabled": true,
+          "isIosBackgroundLocationEnabled": true
+        }
+      ],
+      [
+        "expo-image-picker",
+        {
+          "photosPermission": "Allow Water'O'Water to choose a photo of your ID.",
+          "cameraPermission": "Allow Water'O'Water to take a photo of your ID or of a delivery."
+        }
+      ],
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#0B5C7A",
+          "defaultChannel": "wow-updates"
+        }
+      ],
+      "expo-font",
+      "expo-status-bar"
+    ]
+  }
+}

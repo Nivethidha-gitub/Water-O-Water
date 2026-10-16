@@ -1,0 +1,13 @@
+{
+  "appId": "com.wow.wateroverwater",
+  "appName": "Water O Water",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "http",
+    "cleartext": true
+  },
+  "plugins": {
+    "SplashScreen": { "launchShowDuration": 800, "backgroundColor": "#073a4e" },
+    "StatusBar": { "style": "DARK", "backgroundColor": "#ffffff" }
+  }
+}

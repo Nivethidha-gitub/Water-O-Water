@@ -1,0 +1,81 @@
+.dash-wrap {
+  display: none;
+  width: 100%;
+  max-width: 1040px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dash-wrap.active {
+  display: flex;
+}
+
+.dash-card {
+  background: var(--surface);
+  border-radius: 18px;
+  padding: 20px;
+  border: 1px solid #eef5f7;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.stat {
+  background: var(--surface);
+  border: 1px solid #eef5f7;
+  border-radius: 16px;
+  padding: 16px;
+}
+
+.stat .val {
+  font-family: var(--font-d);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--primary-dark);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  font-size: 10.5px;
+  color: var(--ink-faint);
+  padding: 0 10px 10px;
+}
+
+td {
+  font-size: 12.5px;
+  padding: 11px 10px;
+  border-top: 1px solid #f1f6f7;
+}
+
+.sim-box {
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--can-line);
+  border-radius: 16px;
+  padding: 18px;
+}
+
+.sim-log {
+  min-height: 160px;
+  background: var(--can);
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.sim-box input {
+  width: 70%;
+  padding: 10px;
+  border: 1px solid var(--can-line);
+  border-radius: 10px;
+}

@@ -1,0 +1,12 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.db
+*.db-shm
+*.db-wal
+apps/api/data/
+dist/
+build/
+.expo/
+.DS_Store

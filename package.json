@@ -1,0 +1,26 @@
+{
+  "name": "wow-platform",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Water-O-Water: one app for customers and suppliers",
+  "engines": {
+    "node": ">=22.5"
+  },
+  "workspaces": [
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "node scripts/dev.js",
+    "dev:api": "node apps/api/src/server.js",
+    "dev:web": "npm run dev -w apps/web",
+    "build": "npm run build -w apps/web",
+    "start": "node apps/api/src/server.js",
+    "test": "npm test --prefix apps/api",
+    "mobile:sync": "npm run mobile:sync -w apps/web",
+    "mobile:android": "npm run mobile:android -w apps/web",
+    "mobile:ios": "npm run mobile:ios -w apps/web"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^13.0.3"
+  }
+}

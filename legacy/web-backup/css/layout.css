@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-b);
+  background: linear-gradient(180deg, #eaf5f8 0%, #f7fafb 40%);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 16px 60px;
+}
+
+.page-head {
+  text-align: center;
+  max-width: 640px;
+  margin-bottom: 26px;
+}
+
+.page-head .eyebrow {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.page-head h1 {
+  font-family: var(--font-d);
+  font-weight: 700;
+  font-size: 28px;
+  color: var(--primary-dark);
+}
+
+.page-head p {
+  color: var(--ink-soft);
+  font-size: 14px;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.mode-switch,
+.nav-links {
+  display: flex;
+  gap: 6px;
+  background: var(--surface);
+  padding: 5px;
+  border-radius: 999px;
+  box-shadow: 0 2px 10px rgba(11, 92, 122, 0.1);
+  margin-bottom: 24px;
+}
+
+.mode-switch button,
+.nav-links a {
+  border: none;
+  background: transparent;
+  font-weight: 600;
+  font-size: 13px;
+  color: var(--ink-soft);
+  padding: 9px 18px;
+  border-radius: 999px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.mode-switch button.active,
+.nav-links a.active {
+  background: var(--primary);
+  color: #fff;
+}
+
+.btn {
+  font-family: var(--font-b);
+  font-weight: 700;
+  font-size: 13px;
+  border: none;
+  border-radius: 12px;
+  padding: 10px 16px;
+  cursor: pointer;
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--primary-dark);
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.status-pill {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 4px 9px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.p-delivered {
+  background: var(--good-bg);
+  color: #1f6b45;
+}
+
+.p-transit {
+  background: var(--warn-bg);
+  color: #b5651d;
+}
+
+.p-new {
+  background: #e9f0fe;
+  color: #2a5ad1;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ink);
+  color: #fff;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 12.5px;
+}

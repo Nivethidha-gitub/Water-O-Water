@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: water-o-water-api
+    runtime: node
+    plan: starter
+    region: singapore
+    buildCommand: npm install && npm run build
+    startCommand: node apps/api/src/server.js
+    healthCheckPath: /v1/health
+    autoDeploy: true
+    disk:
+      name: wow-data
+      mountPath: /var/data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: WOW_DB_PATH
+        value: /var/data/wow-platform.db
+      - key: CORS_ORIGIN
+        value: "*"
+      - key: SEED_DEMO_USERS
+        value: "false"
+      - key: SESSION_TTL_HOURS
+        value: "168"
+      - key: LOGIN_MAX_ATTEMPTS
+        value: "8"
+      - key: LOGIN_WINDOW_MIN
+        value: "15"
+      # Add the real provider secrets in Render Dashboard > Environment.
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_VERIFY_SERVICE_SID
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: RAZORPAY_CALLBACK_URL
+        sync: false

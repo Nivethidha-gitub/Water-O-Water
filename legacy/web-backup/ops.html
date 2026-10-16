@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WoW Ops — Fallback queue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/phone.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <div class="page-head">
+    <div class="eyebrow">Ops console</div>
+    <h1>Manual fallback queue</h1>
+    <p>Pilot mode from the architecture PDF: ops assigns a verified backup after the customer says yes.</p>
+  </div>
+  <div class="nav-links">
+    <a href="/">App</a>
+    <a class="active" href="/ops.html">Ops fallback</a>
+    <a href="/whatsapp.html">WhatsApp sim</a>
+  </div>
+  <div class="sim-box">
+    <button class="btn btn-light" onclick="loadFallbackQueue()">Refresh queue</button>
+    <div id="fallback-list" onclick="onFallbackClick(event)"></div>
+  </div>
+  <div id="toast" class="toast hidden"></div>
+  <script src="/js/config.js"></script>
+  <script src="/js/api-client.js"></script>
+  <script src="/js/toast.js"></script>
+  <script src="/js/screens/ops.js"></script>
+</body>
+</html>

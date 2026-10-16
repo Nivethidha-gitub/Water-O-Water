@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>WoW WhatsApp simulator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+  <div class="page-head">
+    <div class="eyebrow">Customer channel</div>
+    <h1>WhatsApp simulator</h1>
+    <p>No Meta access needed. Sends POST /v1/webhooks/whatsapp. Type HI to place an order.</p>
+  </div>
+  <div class="nav-links">
+    <a href="/">App</a>
+    <a href="/ops.html">Ops fallback</a>
+    <a class="active" href="/whatsapp.html">WhatsApp sim</a>
+  </div>
+  <div class="sim-box">
+    <div id="wa-log" class="sim-log"></div>
+    <input id="wa-text" placeholder="Hi / BAL / ORDER" />
+    <button class="btn btn-primary" onclick="sendWa()">Send</button>
+  </div>
+  <script src="/js/config.js"></script>
+  <script src="/js/api-client.js"></script>
+  <script src="/js/screens/whatsapp-sim.js"></script>
+</body>
+</html>
